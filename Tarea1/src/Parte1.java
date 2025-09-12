@@ -1,9 +1,8 @@
 import java.io.File;
 import java.io.IOException;
-import java.sql.ClientInfoStatus;
 import java.util.Arrays;
 
-public class Main{
+public class Parte1 {
     public static void main(String[] args) {
         System.out.println(eDirectorio("/home/dam/Documentos/AcesoDatos"));
         System.out.println(eFicheiro("/home/dam/Documentos/AcesoDatos"));
