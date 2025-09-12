@@ -21,5 +21,8 @@ public class Parte2 {
 
         //Ej6
         Parte1.mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
+
+        //Ej7
+        Parte1.mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
     }
 }
