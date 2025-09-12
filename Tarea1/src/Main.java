@@ -1,20 +1,22 @@
 import java.io.File;
 import java.io.IOException;
+import java.sql.ClientInfoStatus;
 import java.util.Arrays;
 
 public class Main{
     public static void main(String[] args) {
         System.out.println(eDirectorio("/home/dam/Documentos/AcesoDatos"));
         System.out.println(eFicheiro("/home/dam/Documentos/AcesoDatos"));
-        creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio/pruebaDir");
-        creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        //creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio/pruebaDir");
+        //creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio/pruebaDir","Prueba");
         //modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         System.out.println(calculaLonxitude("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba"));
         //mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         //mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         //borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         //borraDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
-        mContido("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
+        //mContido("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
+        recur(new File("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio"));
 
     }//en static
 
@@ -120,5 +122,21 @@ public class Main{
     public static void mContido(String dirName){
         File archivo = new File(dirName);
         System.out.println(Arrays.toString(archivo.list()));
+    }
+
+    public static void recur(File padre){
+        String[] listado = padre.list();
+        System.out.println(Arrays.toString(listado));
+        if (listado!=null){
+            File archivo;
+            for (String ruta:listado){
+                archivo = new File(padre.getPath(),ruta);
+                if (archivo.isDirectory()){
+                    System.out.println(ruta+": ");
+                    recur(archivo);
+                }
+            }
+        }
+
     }
 }//end class
