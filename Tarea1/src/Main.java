@@ -119,14 +119,21 @@ public class Main{
         }
     }
 
-    public static void mContido(String dirName){
+    /**
+     * Funcion que recibe la ruta de un directorio y muestra el resultado
+     * @param dirName ruta del dirtectorio
+     * @return un array de Strings (String[]) con el listado que muestra
+     */
+    public static String[] mContido(String dirName){
         File archivo = new File(dirName);
-        System.out.println(Arrays.toString(archivo.list()));
+        String[] listado = archivo.list();
+        System.out.println(Arrays.toString(listado));
+        return listado;
     }
 
     public static void recur(File padre){
-        String[] listado = padre.list();
-        System.out.println(Arrays.toString(listado));
+        String[] listado = mContido(padre.getPath());
+
         if (listado!=null){
             File archivo;
             for (String ruta:listado){
