@@ -9,8 +9,9 @@ public class Main{
         //creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");ç
         //modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         System.out.println(calculaLonxitude("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba"));
-        mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
-        mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        //mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        //mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
 
     }//en static
 
@@ -89,6 +90,16 @@ public class Main{
             System.out.println("Archivo permite escribir");
         }else {
             System.out.println("El archivo no pudo ser modificado");
+        }
+    }
+
+    public static void borraFicheiro(String dirName,String fileName){
+        File archivo = new File(dirName,fileName);
+        boolean resultado = archivo.delete();
+        if (resultado){
+            System.out.println("Archivo eliminado");
+        }else {
+            System.out.println("Archivo inexistente");
         }
     }
 }//end class
