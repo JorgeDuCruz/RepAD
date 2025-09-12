@@ -7,8 +7,9 @@ public class Main{
         System.out.println(eFicheiro("/home/dam/Documentos/AcesoDatos"));
         //creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
         //creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");ç
-        modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        //modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         System.out.println(calculaLonxitude("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba"));
+        mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
 
     }//en static
 
@@ -70,5 +71,14 @@ public class Main{
     public static long calculaLonxitude(String dirName, String fileName){
         File archivo = new File(dirName,fileName);
         return archivo.length();
+    }
+
+    public static void mLectura(String dirName,String fileName){
+        File archivo = new File(dirName,fileName);
+        if (archivo.setReadOnly()){
+            System.out.println("Archivo en solo lectura");
+        }else {
+            System.out.println("El archivo no pudo ser modificado");
+        }
     }
 }//end class
