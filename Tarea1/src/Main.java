@@ -12,6 +12,7 @@ public class Main{
         //mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         //mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        borraDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
 
     }//en static
 
@@ -102,4 +103,16 @@ public class Main{
             System.out.println("Archivo inexistente");
         }
     }
+
+
+    public static void borraDirectorio(String dirName){
+        File archivo = new File(dirName);
+        boolean resultado = archivo.delete();
+        if (resultado){
+            System.out.println("Directorio eliminado");
+        }else {
+            System.out.println("Directorio inexistente");
+        }
+    }
+
 }//end class
