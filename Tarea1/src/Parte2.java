@@ -10,5 +10,9 @@ public class Parte2 {
         //Ej3
         Parte1.creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir/subdir");
         Parte1.creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir/subdir","Products2.txt");
+
+        //Ej4
+        Parte1.mContido("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir");
+
     }
 }
