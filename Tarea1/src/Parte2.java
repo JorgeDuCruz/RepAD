@@ -24,5 +24,8 @@ public class Parte2 {
 
         //Ej7
         Parte1.mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
+
+        //Ej8
+        Parte1.borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
     }
 }
