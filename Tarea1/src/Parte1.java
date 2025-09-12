@@ -35,7 +35,7 @@ public class Parte1 {
         if(creado){
             System.out.println("Archivo creado");
         }else{
-            System.out.println("No se ha creado");
+            System.out.println("No se ha creado o ya existente");
         }
     }
 
@@ -48,7 +48,7 @@ public class Parte1 {
             if (resultado) {
                 System.out.println("Archivo creado");
             }else {
-                System.out.println("Archivo no creado");
+                System.out.println("Archivo no creado o ya existente");
             }
         }catch (IOException e){
             System.out.println(e.getMessage());
@@ -113,6 +113,9 @@ public class Parte1 {
         boolean resultado = archivo.delete();
         if (resultado){
             System.out.println("Directorio eliminado");
+        }else if (eDirectorio(archivo.getPath())){
+            archivo.deleteOnExit();
+            System.out.println("caso raro");
         }else {
             System.out.println("Directorio inexistente");
         }

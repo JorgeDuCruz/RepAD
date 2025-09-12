@@ -27,5 +27,8 @@ public class Parte2 {
 
         //Ej8
         Parte1.borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
+
+        //Ej9
+        Parte1.borraDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir");
     }
 }
