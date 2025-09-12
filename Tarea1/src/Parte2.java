@@ -16,6 +16,7 @@ public class Parte2 {
         Parte1.mContido("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir");
 
         //Ej5
-
+        Parte1.modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
+        System.out.println(Parte1.calculaLonxitude("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt"));
     }
 }
