@@ -1,18 +1,20 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main{
     public static void main(String[] args) {
         System.out.println(eDirectorio("/home/dam/Documentos/AcesoDatos"));
         System.out.println(eFicheiro("/home/dam/Documentos/AcesoDatos"));
-        //creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
-        //creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");ç
+        creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio/pruebaDir");
+        creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         //modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         System.out.println(calculaLonxitude("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba"));
         //mLectura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
         //mEscritura("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
-        borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
-        borraDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
+        //borraFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        //borraDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
+        mContido("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
 
     }//en static
 
@@ -115,4 +117,8 @@ public class Main{
         }
     }
 
+    public static void mContido(String dirName){
+        File archivo = new File(dirName);
+        System.out.println(Arrays.toString(archivo.list()));
+    }
 }//end class
