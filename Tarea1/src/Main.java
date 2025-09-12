@@ -5,8 +5,10 @@ public class Main{
     public static void main(String[] args) {
         System.out.println(eDirectorio("/home/dam/Documentos/AcesoDatos"));
         System.out.println(eFicheiro("/home/dam/Documentos/AcesoDatos"));
-        creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
-        creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        //creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
+        //creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");ç
+        modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+
     }//en static
 
 
@@ -44,7 +46,23 @@ public class Main{
             System.out.println(e.getMessage());
 
         }
+    }
 
+    public static void modoAcceso(String dirName,String fileName){
+        File archivo = new File(dirName,fileName);
+        boolean lectura, esritura;
+        lectura=archivo.canRead();
+        esritura=archivo.canWrite();
+        if (lectura){
+            System.out.println("Se puede leer");
+        }else {
+            System.out.println("No se puede leer");
+        }
 
+        if (esritura){
+            System.out.println("Se puede escribir");
+        }else {
+            System.out.println("No se puede escribir");
+        }
     }
 }//end class
