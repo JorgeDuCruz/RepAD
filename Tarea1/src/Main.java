@@ -8,6 +8,7 @@ public class Main{
         //creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio");
         //creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");ç
         modoAcceso("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba");
+        System.out.println(calculaLonxitude("/home/dam/Documentos/AcesoDatos/Tarea1/pruebaDirectorio","Prueba"));
 
     }//en static
 
@@ -64,5 +65,10 @@ public class Main{
         }else {
             System.out.println("No se puede escribir");
         }
+    }
+
+    public static long calculaLonxitude(String dirName, String fileName){
+        File archivo = new File(dirName,fileName);
+        return archivo.length();
     }
 }//end class
