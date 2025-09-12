@@ -3,9 +3,10 @@ public class Parte2 {
     public static void main(String[] args) {
         //Ej 1
         Parte1.creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir");
-
+        System.out.println(Parte1.eDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir"));
         //Ej2
         Parte1.creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
+        System.out.println(Parte1.eFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir/Products.txt"));
 
         //Ej3
         Parte1.creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir/subdir");
@@ -13,6 +14,8 @@ public class Parte2 {
 
         //Ej4
         Parte1.mContido("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir");
+
+        //Ej5
 
     }
 }
