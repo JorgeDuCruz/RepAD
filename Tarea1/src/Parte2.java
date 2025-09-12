@@ -4,5 +4,7 @@ public class Parte2 {
         //Ej 1
         Parte1.creaDirectorio("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir");
 
+        //Ej2
+        Parte1.creaFicheiro("/home/dam/Documentos/AcesoDatos/Tarea1/arquivosdir","Products.txt");
     }
 }
