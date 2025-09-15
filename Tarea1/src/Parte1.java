@@ -113,11 +113,27 @@ public class Parte1 {
         boolean resultado = archivo.delete();
         if (resultado){
             System.out.println("Directorio eliminado");
-        }else if (eDirectorio(archivo.getPath())){
-            archivo.deleteOnExit();
-            System.out.println("caso raro");
+        }else if (eDirectorio(archivo.getPath()) && mContido(archivo.getPath())!=null){
+            borrarContenido(mContido(archivo.getPath()),archivo);
+            resultado=archivo.delete();
+            System.out.println(resultado);
         }else {
             System.out.println("Directorio inexistente");
+        }
+    }
+
+    private static void borrarContenido(String[] contenido,File padre){
+        File archivo;
+        for (String ruta:contenido){
+            archivo = new File(padre.getPath(),ruta);
+            if (eDirectorio(archivo.getPath())){
+                borraDirectorio(archivo.getPath());
+            } else if (eFicheiro(archivo.getPath())) {
+                archivo.delete();
+            }
+            else {
+                System.out.println("No sé que archivo estoy tratando de borrar");
+            }
         }
     }
 
