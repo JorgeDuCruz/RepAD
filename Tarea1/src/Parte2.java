@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class Parte2 {
 
     public static void main(String[] args) {
@@ -26,9 +28,12 @@ public class Parte2 {
         Parte1.mEscritura("/home/dam/Documentos/AD/RepAD/Tarea1/arquivosdir","Products.txt");
 
         //Ej8
-        Parte1.borraFicheiro("/home/dam/Documentos/AD/RepAD/Tarea1/arquivosdir","Products.txt");
+        //Parte1.borraFicheiro("/home/dam/Documentos/AD/RepAD/Tarea1/arquivosdir","Products.txt");
 
         //Ej9
-        Parte1.borraDirectorio("/home/dam/Documentos/AD/RepAD/Tarea1/arquivosdir");
+        //Parte1.borraDirectorio("/home/dam/Documentos/AD/RepAD/Tarea1/arquivosdir");
+
+        //Ej 10
+        Parte1.recur(new File("/home/dam/Documentos/AD/RepAD/Tarea1/arquivosdir"));
     }
 }
