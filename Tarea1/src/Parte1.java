@@ -33,7 +33,7 @@ public class Parte1 {
         File archivo = new File(cadea);
         boolean creado = archivo.mkdir();
         if(creado){
-            System.out.println("Archivo creado");
+            System.out.println("Directorio creado");
         }else{
             System.out.println("No se ha creado o ya existente");
         }
