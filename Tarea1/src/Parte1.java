@@ -110,13 +110,18 @@ public class Parte1 {
 
     public static void borraDirectorio(String dirName){
         File archivo = new File(dirName);
-        boolean resultado = archivo.delete();
-        if (resultado){
-            System.out.println("Directorio eliminado");
-        }else if (eDirectorio(archivo.getPath()) && mContido(archivo.getPath())!=null){
-            borrarContenido(mContido(archivo.getPath()),archivo);
-            resultado=archivo.delete();
-            System.out.println(resultado);
+        boolean directorio = eDirectorio(dirName);
+        boolean resultado;
+        if (directorio){
+             resultado = archivo.delete();
+            if (resultado){
+                System.out.println("Directorio borrado");
+            }else if (mContido(dirName)!=null){
+                borrarContenido(mContido(dirName),archivo);
+                archivo.delete();
+            }else {
+                System.out.println("Directorio no borrado");
+            }
         }else {
             System.out.println("Directorio inexistente");
         }
