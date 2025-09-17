@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class Main {
+public class Parte1 {
     public static void main(String[] args) {
         copiarArchivo("/home/dam/Documentos/AD/RepAD/Tarea2/src/texto1.txt","src/texto2.txt");
         anhadirArchivo("/home/dam/Documentos/AD/RepAD/Tarea2/src/texto1.txt","src/texto2.txt");
