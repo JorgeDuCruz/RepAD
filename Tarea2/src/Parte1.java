@@ -25,6 +25,8 @@ public class Parte1 {
             }
             escribir.write(b);
 
+            leer.close();
+            escribir.close();
 
         }catch (Exception e){
             System.out.println(e.getMessage());
