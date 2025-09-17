@@ -4,25 +4,25 @@ import java.io.FileOutputStream;
 
 public class Main {
     public static void main(String[] args) {
-        crearArchivo("/home/dam/Documentos/AD/RepAD/Tarea2/src/texto1.txt");
+        crearArchivo("/home/dam/Documentos/AD/RepAD/Tarea2/src/texto1.txt","src/texto2.txt");
     }
 
-    public static void crearArchivo(String ruta){
+    public static void crearArchivo(String ruta,String rutaE){
         try {
             FileInputStream leer = new FileInputStream(new File(ruta));
-            int lectura;
-            char letra;
+            FileOutputStream escribir = new FileOutputStream(new File(rutaE));
+            int lectura,i=0;
+            byte[] b = new byte[leer.available()];
 
-            while (true) {
+            while (true){
                 lectura = leer.read();
-                if (lectura==-1){
+                if (lectura==-1) {
                     break;
                 }
-
-                letra = (char) lectura;
-                System.out.print(letra);
+                b[i] = (byte) lectura;
+                i++;
             }
-
+            escribir.write(b);
 
 
         }catch (Exception e){
