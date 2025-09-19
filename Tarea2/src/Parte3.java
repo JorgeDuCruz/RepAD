@@ -1,0 +1,37 @@
+import java.io.*;
+
+public class Parte3 {
+
+    public static void main(String[] args) {
+        primerMetodo("texto3.txt", "o tempo está xélido");
+    }
+
+    public static void primerMetodo(String rutaD, String textoCopiar) {
+        try {
+            DataOutputStream escribir = new DataOutputStream(new FileOutputStream(rutaD));
+            File archivo = new File(rutaD);
+            for (int i=0;i<3;i++){
+                System.out.println("Escribindo a cadea: "+textoCopiar+","+i);
+                escribir.writeUTF(textoCopiar+","+i);
+                System.out.println("Tamaño del fichero: "+archivo.length());
+            }
+            //termina de escribir
+            long fichero = archivo.length();
+            System.out.println("tamaño final del archivo: "+fichero);
+
+            DataInputStream leer = new DataInputStream(new FileInputStream(rutaD));
+            while (fichero>0){
+                System.out.println("Quedan por leer "+fichero+" bytes");
+                String lectura = leer.readUTF();
+                System.out.println("cadea: "+lectura);
+                int leido = lectura.length();
+                fichero = fichero-leido-4; // Le resta a la longitud total del fichero los bytes que se han leido y tambien los 4 bytes que referencian a los bytes leidos
+            }
+            System.out.println("Ya no queda nada por leer");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+}
