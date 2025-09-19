@@ -9,17 +9,17 @@ public class Parte3 {
     public static void primerMetodo(String rutaD, String textoCopiar) {
         try {
             DataOutputStream escribir = new DataOutputStream(new FileOutputStream(rutaD));
-            File archivo = new File(rutaD);
+            DataInputStream leer = new DataInputStream(new FileInputStream(rutaD));
             for (int i=0;i<3;i++){
                 System.out.println("Escribindo a cadea: "+textoCopiar+","+i);
                 escribir.writeUTF(textoCopiar+","+i);
-                System.out.println("Tamaño del fichero: "+archivo.length());
+                System.out.println("Tamaño del fichero: "+escribir.size());
             }
             //termina de escribir
-            long fichero = archivo.length();
+            long fichero = leer.available();
             System.out.println("tamaño final del archivo: "+fichero);
 
-            DataInputStream leer = new DataInputStream(new FileInputStream(rutaD));
+
             while (fichero>0){
                 System.out.println("Quedan por leer "+fichero+" bytes");
                 String lectura = leer.readUTF();
