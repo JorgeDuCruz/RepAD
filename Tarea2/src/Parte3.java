@@ -10,10 +10,15 @@ public class Parte3 {
         try {
             DataOutputStream escribir = new DataOutputStream(new FileOutputStream(rutaD));
             DataInputStream leer = new DataInputStream(new FileInputStream(rutaD));
+            int correccion=0;
             for (int i=0;i<3;i++){
                 System.out.println("Escribindo a cadea: "+textoCopiar+","+i);
                 escribir.writeUTF(textoCopiar+","+i);
                 System.out.println("Tamaño del fichero: "+escribir.size());
+                if (i==0){
+                    correccion = escribir.size()-(textoCopiar+","+i).length();
+                    System.out.println(correccion);
+                }
             }
             //termina de escribir
             long fichero = leer.available();
@@ -25,7 +30,7 @@ public class Parte3 {
                 String lectura = leer.readUTF();
                 System.out.println("cadea: "+lectura);
                 int leido = lectura.length();
-                fichero = fichero-leido-4; // Le resta a la longitud total del fichero los bytes que se han leido y tambien los 4 bytes que referencian a los bytes leidos
+                fichero = fichero-leido-correccion; // Le resta a la longitud total del fichero los bytes que se han leido y tambien los 4 bytes que referencian a los bytes leidos
             }
             System.out.println("Ya no queda nada por leer");
 
