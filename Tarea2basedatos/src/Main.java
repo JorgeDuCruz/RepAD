@@ -6,6 +6,7 @@ public class Main {
         //Anime prueba = new Anime("Naruto", "Anime de ninjas", "2002-10-03", 85);
         //ServicioAnime.insertarDatos(prueba,conn);
         //ServicioAnime.borrarDatos("Naruto",conn);
-        ServicioAnime.leer(conn);
+        //ServicioAnime.leer(conn);
+        ServicioAnime.leerFiltros(conn,"Naruto");
     }
 }
