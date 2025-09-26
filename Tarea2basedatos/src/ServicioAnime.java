@@ -17,4 +17,15 @@ public class ServicioAnime {
         }
 
     }
+
+    public static void borrarDatos(String nome, Connection conn) {
+        try {
+            String sql = "DELETE FROM anime WHERE nome = ?";
+            PreparedStatement lanzable = conn.prepareStatement(sql);
+            lanzable.setString(1, nome);
+            lanzable.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Error al borrar datos: " + e.getMessage());
+        }
+    }
 }
