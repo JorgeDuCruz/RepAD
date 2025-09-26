@@ -38,7 +38,7 @@ public class Anime {
         return formato.format(dataD);
     }
 
-    private Date stringToDate(String dataStr) {
+    public static Date stringToDate(String dataStr) {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         try {
             java.util.Date dataUtil = formato.parse(dataStr);

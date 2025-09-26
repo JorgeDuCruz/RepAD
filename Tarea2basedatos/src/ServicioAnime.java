@@ -44,11 +44,11 @@ public class ServicioAnime {
         }
     }
 
-    public static void leerFiltros(Connection conn,String Titulo){
+    public static void leerFiltros(Connection conn,String titulo){
         String sql = "select * from anime where nome = ?";
         try {
             PreparedStatement lectura = conn.prepareStatement(sql);
-            lectura.setString(1,Titulo);
+            lectura.setString(1,titulo);
             ResultSet resultado = lectura.executeQuery();
             while (resultado.next()){
                 String nome = resultado.getString(1);
@@ -62,4 +62,18 @@ public class ServicioAnime {
         }
     }
 
+    public static void actualizarDatos(Connection conn,String tituloAnime,String nuevoTitulo, String nuevaDesc, String nuevaFecha, int nuevaPun){
+        String sql = "update anime set nome = ?, descripcion = ?, data = ?,puntuacion = ? where nome = ?";
+        try {
+            PreparedStatement actualizar = conn.prepareStatement(sql);
+            actualizar.setString(1,nuevoTitulo);
+            actualizar.setString(2,nuevaDesc);
+            actualizar.setDate(3,Anime.stringToDate(nuevaFecha));
+            actualizar.setInt(4,nuevaPun);
+            actualizar.setString(5,tituloAnime);
+            actualizar.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar: "+e.getMessage());
+        }
+    }
 }

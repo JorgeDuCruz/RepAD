@@ -7,6 +7,7 @@ public class Main {
         //ServicioAnime.insertarDatos(prueba,conn);
         //ServicioAnime.borrarDatos("Naruto",conn);
         //ServicioAnime.leer(conn);
+        ServicioAnime.actualizarDatos(conn,"Naruto","Naruto","Ciclos de Odio","2022-12-11",95);
         ServicioAnime.leerFiltros(conn,"Naruto");
     }
 }
