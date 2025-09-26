@@ -4,9 +4,9 @@ import java.sql.SQLException;
 
 public class Conexion {
     public static Connection conexion() {
-        String url = "jdbc:postgresql://10.0.9.140:5432/probas"; // Reemplaza con tu URL
-        String usuario = "postgres";                           // Reemplaza con tu usuario
-        String contrasinal = "admin";                   // Reemplaza con tu contraseña
+        String url = "jdbc:postgresql://10.0.9.140:5432/probas";
+        String usuario = "postgres";
+        String contrasinal = "admin";
 
         Connection conn = null;
 
