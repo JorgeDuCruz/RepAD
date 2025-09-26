@@ -33,7 +33,7 @@ public class Anime {
         }
     }
 
-    private String dateToString(Date dataD) {
+    public static String dateToString(Date dataD) {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         return formato.format(dataD);
     }

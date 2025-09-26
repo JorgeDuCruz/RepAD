@@ -1,6 +1,4 @@
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
+import java.sql.*;
 
 public class ServicioAnime {
     public static void insertarDatos(Anime anime,Connection conn) {
@@ -28,4 +26,22 @@ public class ServicioAnime {
             System.out.println("Error al borrar datos: " + e.getMessage());
         }
     }
+
+    public static void leer(Connection conn) {
+        String sql = "select * from anime;";
+        try {
+            PreparedStatement lectura = conn.prepareStatement(sql);
+            ResultSet resultado = lectura.executeQuery();
+            while (resultado.next()){
+                String nome = resultado.getString(1);
+                String desc = resultado.getString(2);
+                Date data = resultado.getDate(3);
+                int puntuacion = resultado.getInt(4);
+                System.out.println("Nombre: "+nome+" Descripcion: "+desc+" Data: "+Anime.dateToString(data)+" Puntuacion: "+puntuacion);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al leer tabla: "+e.getMessage());
+        }
+    }
+
 }
