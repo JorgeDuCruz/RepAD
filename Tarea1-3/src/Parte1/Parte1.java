@@ -13,7 +13,7 @@ public class Parte1 {
 
     public static void gardarProducto(Producto p1){
         try{
-            ObjectOutputStream gardar = new ObjectOutputStream(new FileOutputStream("serial.txt"));
+            ObjectOutputStream gardar = new ObjectOutputStream(new FileOutputStream("src/Parte1/serial.txt"));
             gardar.writeObject(p1);
         } catch (IOException e) {
             System.out.println("error al encotrar fichero "+e.getMessage());
@@ -23,7 +23,7 @@ public class Parte1 {
     public static Producto cargarProducto(){
         Producto p2=null;
         try {
-            ObjectInputStream cargar = new ObjectInputStream(new FileInputStream("serial.txt"));
+            ObjectInputStream cargar = new ObjectInputStream(new FileInputStream("src/Parte1/serial.txt"));
             p2 = (Producto) cargar.readObject();
         } catch (IOException e) {
             System.out.println("Error al encontrar fichero "+e.getMessage());
