@@ -1,6 +1,5 @@
 package Parte3;
 
-import javax.sql.rowset.spi.XmlReader;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
