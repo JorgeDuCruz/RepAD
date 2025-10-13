@@ -5,21 +5,21 @@ public class Vehiculo implements Serializable {
     private String modelo;
     private String marca;
     private int ano;
-    private String descipcion;
+    private String descripcion;
 
-    public Vehiculo(int id, String modelo, String marca, int ano, String descipcion) {
+    public Vehiculo(int id, String modelo, String marca, int ano, String descripcion) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
-        this.descipcion = descipcion;
+        this.descripcion = descripcion;
     }
 
-    public Vehiculo(String modelo, String marca, int ano, String descipcion) {
+    public Vehiculo(String modelo, String marca, int ano, String descripcion) {
         this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
-        this.descipcion = descipcion;
+        this.descripcion = descripcion;
     }
 
     public int getId() {
@@ -39,11 +39,11 @@ public class Vehiculo implements Serializable {
     }
 
     public String getDescipcion() {
-        return descipcion;
+        return descripcion;
     }
 
     @Override
     public String toString(){
-        return "id = "+id+" Modelo = "+modelo+" Marca = "+marca+" Ano = "+ano+" Descripción = "+descipcion;
+        return "id = "+id+" Modelo = "+modelo+" Marca = "+marca+" Ano = "+ano+" Descripción = "+ descripcion;
     }
 }
