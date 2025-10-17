@@ -67,6 +67,7 @@ Descrición: Híbrido de baixo consumo e ecolóxico.
 
         for (Vehiculo vehiculo:listaV){
             System.out.println(vehiculo);
+            SerializarVariosObjetos.serializarVehiculos(vehiculo);
         }
 
         EscribirFicheiro.escribri(listaV);
