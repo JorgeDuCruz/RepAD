@@ -63,7 +63,7 @@ public class PokedexServices {
                 session.delete(pokedex);
             }
             else {
-                System.out.println("No se encontro la entrada de pokedex");
+                System.out.println("No se encontró la entrada de pokedex");
             }
             transaction.commit();
         } catch (Exception e) {

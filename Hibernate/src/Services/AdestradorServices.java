@@ -62,7 +62,7 @@ public class AdestradorServices {
                 session.delete(adestrador);
             }
             else {
-                System.out.println("No se encontro adestrador");
+                System.out.println("No se encontró adestrador");
             }
             transaction.commit();
         } catch (Exception e) {
