@@ -24,10 +24,6 @@ public class Pokemon {
     @Column(name = "adestrador",nullable = true)
     private int adestrador;
 
-    public Pokemon(String nome, String nacemento) {
-        this.nome = nome;
-        setNacemento(nacemento);
-    }
 
     public int getId() {
         return id;

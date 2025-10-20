@@ -51,7 +51,7 @@ public class PokedexServices {
             transaction.commit();
 
         } catch (Exception e) {
-            System.out.println("Error al actualizar pokemon en la pokedex");
+            System.out.println("Error al actualizar pokemon en la pokedex: "+e.getMessage());
         }
     }
 
@@ -67,7 +67,7 @@ public class PokedexServices {
             }
             transaction.commit();
         } catch (Exception e) {
-            System.out.println("Error al borrar entrada de pokedex");
+            System.out.println("Error al borrar entrada de pokedex: "+e.getMessage());
         }
     }
 
