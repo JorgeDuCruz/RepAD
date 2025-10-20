@@ -38,7 +38,7 @@ public class PokemonServices {
 
     public List<Pokemon> leerPokemons(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
-            return session.createQuery("from pokemon", Pokemon.class).getResultList();
+            return session.createQuery("from Pokemon", Pokemon.class).getResultList();
         } catch (Exception e) {
             System.out.println("Error al leer la tabla pokemon");
             return null;

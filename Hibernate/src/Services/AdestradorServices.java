@@ -36,7 +36,7 @@ public class AdestradorServices {
 
     public List<Adestrador> leerAdestradores(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
-            return session.createQuery("from adestrador", Adestrador.class).getResultList();
+            return session.createQuery("from Adestrador", Adestrador.class).getResultList();
         } catch (Exception e) {
             System.out.println("Error al leer la tabla adestrador");
             return null;

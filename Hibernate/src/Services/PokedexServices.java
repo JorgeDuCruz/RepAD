@@ -37,9 +37,9 @@ public class PokedexServices {
 
     public List<Pokedex> leerPokedexs(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
-            return session.createQuery("from pokemon", Pokedex.class).getResultList();
+            return session.createQuery("from Pokedex", Pokedex.class).getResultList();
         } catch (Exception e) {
-            System.out.println("Error al leer la tabla pokemon");
+            System.out.println("Error al leer la tabla pokedex");
             return null;
         }
     }
