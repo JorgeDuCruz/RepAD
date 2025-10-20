@@ -10,18 +10,23 @@ import java.util.List;
 
 public class PokedexServices {
 
-    public void AñadirPokemon(Pokedex pokemon) {
+    public void AñadirPokedex(String nome, double peso, String misc) {
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-            session.save(pokemon);
+            Pokedex pokedex = new Pokedex();
+            pokedex.setMisc(misc);
+            pokedex.setNome(nome);
+            pokedex.setPeso(peso);
+
+            session.save(pokedex);
             transaction.commit();
         } catch (Exception e) {
             System.out.println("Error para insertar pokemon en la pokedex: " + e.getMessage());
         }
     }
 
-    public Pokedex leerPokemon(int id) {
+    public Pokedex leerPokedex(int id) {
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
             return session.get(Pokedex.class,id);
         }catch (Exception e){
@@ -30,7 +35,7 @@ public class PokedexServices {
         }
     }
 
-    public List<Pokedex> leerPokemons(){
+    public List<Pokedex> leerPokedexs(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("from pokemon", Pokedex.class).getResultList();
         } catch (Exception e) {
@@ -39,7 +44,7 @@ public class PokedexServices {
         }
     }
 
-    public void ActualizarPokemon(Pokedex pokedex){
+    public void ActualizarPokedex(Pokedex pokedex){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             session.update(pokedex);
@@ -47,6 +52,22 @@ public class PokedexServices {
 
         } catch (Exception e) {
             System.out.println("Error al actualizar pokemon en la pokedex");
+        }
+    }
+
+    public void borrarPokedex(int id){
+        try (Session session = HibernateConfig.getSessionFactory().openSession()){
+            Transaction transaction = session.beginTransaction();
+            Pokedex pokedex = session.get(Pokedex.class,id);
+            if (pokedex!=null){
+                session.delete(pokedex);
+            }
+            else {
+                System.out.println("No se encontro la entrada de pokedex");
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println("Error al borrar entrada de pokedex");
         }
     }
 
