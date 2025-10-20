@@ -18,11 +18,13 @@ public class Pokemon {
     @Column(name = "nacemento")
     private Date nacemento;
 
-    @Column(name = "pokedexentry", nullable = true)
-    private int pokedexentry;
+    @OneToOne
+    @JoinColumn(name = "pokedexentry")
+    private Pokedex pokedex;
 
-    @Column(name = "adestrador",nullable = true)
-    private int adestrador;
+    @ManyToOne
+    @JoinColumn(name = "adestrador")
+    private Adestrador adestrador;
 
 
     public int getId() {
@@ -53,19 +55,19 @@ public class Pokemon {
         this.nacemento = stringToDate(nacemento);
     }
 
-    public int getPokedexentry() {
-        return pokedexentry;
+    public Pokedex getPokedexentry() {
+        return pokedex;
     }
 
-    public void setPokedexentry(int pokedexentry) {
-        this.pokedexentry = pokedexentry;
+    public void setPokedexentry(Pokedex pokedexentry) {
+        this.pokedex = pokedexentry;
     }
 
-    public int getAdestrador() {
+    public Adestrador getAdestrador() {
         return adestrador;
     }
 
-    public void setAdestrador(int adestrador) {
+    public void setAdestrador(Adestrador adestrador) {
         this.adestrador = adestrador;
     }
 
@@ -73,8 +75,8 @@ public class Pokemon {
         return "ID: "+id+"\n" +
                 "Nome: "+nome+"\n"+
                 "Nacemento: "+nacemento+"\n" +
-                "Pokedexentry: "+pokedexentry+"\n" +
-                "Adestrador: "+adestrador;
+                "Pokedexentry: "+pokedex.getId()+"\n" +
+                "Adestrador: "+adestrador.getId();
     }
 
     public static Date stringToDate(String dataStr) {

@@ -2,6 +2,7 @@ package Services;
 
 import config.HibernateConfig;
 import models.Adestrador;
+import models.Pokedex;
 import models.Pokemon;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -15,10 +16,12 @@ public class PokemonServices {
             Transaction transaction = session.beginTransaction();
 
             Pokemon pokemon = new Pokemon();
+            Pokedex pokedexaux = new PokedexServices().leerPokedex(pokedexentry);
+            Adestrador adestradoraux = new AdestradorServices().leerAdestrador(adestrador);
             pokemon.setNome(nome);
             pokemon.setNacemento(dataNacemento);
-            pokemon.setAdestrador(adestrador);
-            pokemon.setPokedexentry(pokedexentry);
+            pokemon.setAdestrador(adestradoraux);
+            pokemon.setPokedexentry(pokedexaux);
 
             session.save(pokemon);
             transaction.commit();
