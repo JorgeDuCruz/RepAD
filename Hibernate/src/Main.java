@@ -1,6 +1,7 @@
 import Services.AdestradorServices;
 import Services.PokedexServices;
 import Services.PokemonServices;
+import Services.SerivceSerializacionPokedex;
 import models.Adestrador;
 import models.Pokedex;
 import models.Pokemon;
@@ -47,7 +48,8 @@ public class Main {
         pokemonServices.AñadirPokemon("Goku","1995-3-30",pokedexServices.leerPokedex("Yveltal").getId(),adestradorServices.leerAdestrador("Manuel").getId());
 
 
-*/
+
+
 
         for (Pokemon pokemon:pokemonServices.leerPokemons()){
             System.out.println(pokemon);
@@ -62,6 +64,13 @@ public class Main {
         for (Adestrador adestrador:adestradorServices.leerAdestradores()){
             System.out.println(adestrador);
             //adestradorServices.borrarAdestrador(adestrador.getId());
+        }
+*/
+        SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Yveltal"));
+        SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Linoone"));
+
+        for (Pokedex pokedex:SerivceSerializacionPokedex.desSerializar()){
+            System.out.println(pokedex);
         }
     }
 }
