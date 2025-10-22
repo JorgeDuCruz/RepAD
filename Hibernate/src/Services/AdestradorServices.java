@@ -34,6 +34,25 @@ public class AdestradorServices {
         }
     }
 
+    public Adestrador leerAdestrador(String nome) {
+        Adestrador adestrador = null;
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            List<Adestrador> list = session.createQuery("from Adestrador where nome = :nome",Adestrador.class)
+                    .setParameter("nome",nome).getResultList();
+            if (!list.isEmpty()){
+                adestrador=list.get(0);
+            }else {
+                System.out.println("No se encontró el adestrador de nome: "+nome);
+            }
+            session.getTransaction().commit();
+        }catch (Exception e){
+            System.out.println("Erro al leer el adestrador "+nome+": "+e.getMessage());
+            return null;
+        }
+        return adestrador;
+    }
+
     public List<Adestrador> leerAdestradores(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("from Adestrador", Adestrador.class).getResultList();

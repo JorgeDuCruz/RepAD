@@ -30,23 +30,24 @@ public class Main {
         adestradorServices.AñadirAdestrador("Pepe","2000-5-21");
         adestradorServices.AñadirAdestrador("Manuel","1995-2-14");
 
-*/
+
         //Pokemon
-        pokemonServices.AñadirPokemon("José","1999-5-21",14,5);
-        pokemonServices.AñadirPokemon("Luis","1999-1-10",15,5);
-        pokemonServices.AñadirPokemon("Juan","1995-3-30",19,5);
-        pokemonServices.AñadirPokemon("Dios","1995-5-20",18,5);
-        pokemonServices.AñadirPokemon("Pre-vaporeon","1998-3-30",15,5);
-        pokemonServices.AñadirPokemon("Pikachu-Temu","1995-3-30",23,5);
+        pokemonServices.AñadirPokemon("José","1999-5-21",pokedexServices.leerPokedex("Pikachu").getId(), adestradorServices.leerAdestrador("Pepe").getId());
+        pokemonServices.AñadirPokemon("Luis","1999-1-10",pokedexServices.leerPokedex("Eevee").getId(),adestradorServices.leerAdestrador("Pepe").getId());
+        pokemonServices.AñadirPokemon("Juan","1995-3-30",pokedexServices.leerPokedex("Arceus").getId(),adestradorServices.leerAdestrador("Pepe").getId());
+        pokemonServices.AñadirPokemon("Dios","1995-5-20",pokedexServices.leerPokedex("Mew").getId(),adestradorServices.leerAdestrador("Pepe").getId());
+        pokemonServices.AñadirPokemon("Pre-vaporeon","1998-3-30",pokedexServices.leerPokedex("Eevee").getId(),adestradorServices.leerAdestrador("Pepe").getId());
+        pokemonServices.AñadirPokemon("Pikachu-Temu","1995-3-30",pokedexServices.leerPokedex("Pikachu").getId(),adestradorServices.leerAdestrador("Pepe").getId());
 
-        pokemonServices.AñadirPokemon("José","1999-5-21",16,6);
-        pokemonServices.AñadirPokemon("Luis","1999-1-10",17,6);
-        pokemonServices.AñadirPokemon("Juan","1995-3-30",19,6);
-        pokemonServices.AñadirPokemon("Dios","1995-5-20",21,6);
-        pokemonServices.AñadirPokemon("Perro","1998-3-30",22,6);
-        pokemonServices.AñadirPokemon("Goku","1995-3-30",20,6);
+        pokemonServices.AñadirPokemon("José","1999-5-21",pokedexServices.leerPokedex("Raichu").getId(),adestradorServices.leerAdestrador("Manuel").getId());
+        pokemonServices.AñadirPokemon("Luis","1999-1-10",pokedexServices.leerPokedex("HO-OH").getId(),adestradorServices.leerAdestrador("Manuel").getId());
+        pokemonServices.AñadirPokemon("Juan","1995-3-30",pokedexServices.leerPokedex("Arceus").getId(),adestradorServices.leerAdestrador("Manuel").getId());
+        pokemonServices.AñadirPokemon("Dios","1995-5-20",pokedexServices.leerPokedex("Linoone").getId(),adestradorServices.leerAdestrador("Manuel").getId());
+        pokemonServices.AñadirPokemon("Perro","1998-3-30",pokedexServices.leerPokedex("Mightyena").getId(),adestradorServices.leerAdestrador("Manuel").getId());
+        pokemonServices.AñadirPokemon("Goku","1995-3-30",pokedexServices.leerPokedex("Yveltal").getId(),adestradorServices.leerAdestrador("Manuel").getId());
 
 
+*/
 
         for (Pokemon pokemon:pokemonServices.leerPokemons()){
             System.out.println(pokemon);

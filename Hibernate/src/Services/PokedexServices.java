@@ -1,6 +1,7 @@
 package Services;
 
 import config.HibernateConfig;
+import models.Adestrador;
 import models.Pokedex;
 import models.Pokemon;
 import org.hibernate.Session;
@@ -33,6 +34,25 @@ public class PokedexServices {
             System.out.println("Erro al leer el pokemon de la pokedex"+id+": "+e.getMessage());
             return null;
         }
+    }
+
+    public Pokedex leerPokedex(String nome) {
+        Pokedex pokedex = null;
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            List<Pokedex> list = session.createQuery("from Pokedex where nome = :nome",Pokedex.class)
+                    .setParameter("nome",nome).getResultList();
+            if (!list.isEmpty()){
+                pokedex=list.get(0);
+            }else {
+                System.out.println("No se encontró el adestrador de nome: "+nome);
+            }
+            session.getTransaction().commit();
+        }catch (Exception e){
+            System.out.println("Erro al leer el adestrador "+nome+": "+e.getMessage());
+            return null;
+        }
+        return pokedex;
     }
 
     public List<Pokedex> leerPokedexs(){
