@@ -6,6 +6,9 @@ import models.Adestrador;
 import models.Pokedex;
 import models.Pokemon;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class Main {
@@ -13,6 +16,12 @@ public class Main {
         PokedexServices pokedexServices = new PokedexServices();
         AdestradorServices adestradorServices = new AdestradorServices();
         PokemonServices pokemonServices = new PokemonServices();
+        ObjectOutputStream serializar = null;
+        try {
+            serializar = new ObjectOutputStream(new FileOutputStream("Pokedex.dex",true));
+        } catch (IOException e) {
+            System.out.println("Error con el archivo para serializar pokedex "+e.getMessage());
+        }
 
         //Pokedex
         /*
@@ -66,8 +75,15 @@ public class Main {
             //adestradorServices.borrarAdestrador(adestrador.getId());
         }
 */
-        SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Yveltal"));
-        SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Linoone"));
+        if (serializar!=null) {
+            SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Yveltal"), serializar);
+            SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Linoone"), serializar);
+            try {
+                serializar.close();
+            } catch (IOException e) {
+                System.out.println("Error al cerrar conexion con serializar "+e.getMessage());
+            }
+        }
 
         for (Pokedex pokedex:SerivceSerializacionPokedex.desSerializar()){
             System.out.println(pokedex);
