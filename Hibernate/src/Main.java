@@ -103,7 +103,7 @@ public class Main {
         //Actualización:
         pokedexAct1.setNome("Giratina");
         pokedexServices.ActualizarPokedex(pokedexAct1);
-        pokedexAct2.setMisc("Pokemon fiel y altamente capaza que encima puede darte terremoto");
+        pokedexAct2.setMisc("Pokemon fiel y altamente capaz, que encima puede darte terremoto");
         pokedexServices.ActualizarPokedex(pokedexAct2);
 
         adestradorAct1.setNome("Perico");
