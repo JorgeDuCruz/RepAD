@@ -22,7 +22,6 @@ public class Main {
         }
 
         //Pokedex
-        /*
         pokedexServices.AñadirPokedex("Pikachu",5,"Rata amante del ketchup");
         pokedexServices.AñadirPokedex("Eevee",2.5,"Pokemon evolución");
         pokedexServices.AñadirPokedex("Raichu",50,"Rata arrogante");
@@ -72,10 +71,13 @@ public class Main {
             System.out.println(adestrador);
             //adestradorServices.borrarAdestrador(adestrador.getId());
         }
-*/
+
+        //Pokedex a actualizar:
+        Pokedex pokedexAct1 = pokedexServices.leerPokedex("Yveltal");
+        Pokedex pokedexAct2 = pokedexServices.leerPokedex("Linoone");
         if (serializar!=null) {
-            SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Yveltal"), serializar);
-            SerivceSerializacionPokedex.serializar(pokedexServices.leerPokedex("Linoone"), serializar);
+            SerivceSerializacionPokedex.serializar(pokedexAct1, serializar);
+            SerivceSerializacionPokedex.serializar(pokedexAct2, serializar);
             try {
                 serializar.close();
             } catch (IOException e) {
@@ -83,18 +85,80 @@ public class Main {
             }
         }
 
-        for (Pokedex pokedex:SerivceSerializacionPokedex.desSerializar()){
-            System.out.println(pokedex);
-        }
-
+        //Adestradores a actualizar:
+        Adestrador adestradorAct1 = adestradorServices.leerAdestrador("Pepe");
+        Adestrador adestradorAct2 = adestradorServices.leerAdestrador("Manuel");
         ArrayList<Adestrador> list = new ArrayList<>();
-        list.add(adestradorServices.leerAdestrador("Pepe"));
-        list.add(adestradorServices.leerAdestrador("Manuel"));
+        list.add(adestradorAct1);
+        list.add(adestradorAct2);
         ServiceXMLAdestrador.exportarXML(list);
 
-        ArrayList<Adestrador> listAd = ServiceXMLAdestrador.importarXML();
-        for (Adestrador adestrador:listAd){
+        //Pokémons a actualizar:
+        Pokemon pokemonAct1 = pokemonServices.leerPokemon("Goku");
+        Pokemon pokemonAct2 = pokemonServices.leerPokemon("Juan");
+        Pokemon pokemonAct3 = pokemonServices.leerPokemon("Dios");
+        Pokemon pokemonAct4 = pokemonServices.leerPokemon("Pre-vaporeon");
+
+
+        //Actualización:
+        pokedexAct1.setNome("Giratina");
+        pokedexServices.ActualizarPokedex(pokedexAct1);
+        pokedexAct2.setMisc("Pokemon fiel y altamente capaza que encima puede darte terremoto");
+        pokedexServices.ActualizarPokedex(pokedexAct2);
+
+        adestradorAct1.setNome("Perico");
+        adestradorServices.ActualizarAdestrador(adestradorAct1);
+        adestradorAct2.setNome("CakePlayer");
+        adestradorServices.ActualizarAdestrador(adestradorAct2);
+
+        pokemonAct1.setNacemento("0001-01-02");
+        pokemonServices.ActualizarPokemon(pokemonAct1);
+        pokemonAct2.setNacemento("0000-01-01");
+        pokemonServices.ActualizarPokemon(pokemonAct2);
+        pokemonAct3.setNacemento("0000-01-02");
+        pokemonServices.ActualizarPokemon(pokemonAct3);
+        pokemonAct4.setNacemento("2006-12-21");
+        pokemonServices.ActualizarPokemon(pokemonAct4);
+
+        for (Pokemon pokemon:pokemonServices.leerPokemons()){
+            System.out.println(pokemon);
+
+        }
+
+        for (Pokedex pokedex:pokedexServices.leerPokedexs()){
+            System.out.println(pokedex);
+
+        }
+
+        for (Adestrador adestrador:adestradorServices.leerAdestradores()){
             System.out.println(adestrador);
+
+        }
+
+        // Devolver datos
+        ArrayList<Pokedex> listDevPokedex = SerivceSerializacionPokedex.desSerializar();
+        for (Pokedex pokedex:listDevPokedex){
+            pokedexServices.ActualizarPokedex(pokedex);
+        }
+
+        ArrayList<Adestrador> listDevAdestrador = ServiceXMLAdestrador.importarXML();
+        for (Adestrador adestrador:listDevAdestrador){
+            adestradorServices.ActualizarAdestrador(adestrador);
+        }
+
+        for (Pokemon pokemon:pokemonServices.leerPokemons()){
+            System.out.println(pokemon);
+            pokemonServices.borrarPokemon(pokemon.getId());
+        }
+
+        for (Pokedex pokedex:pokedexServices.leerPokedexs()){
+            System.out.println(pokedex);
+            pokedexServices.borrarPokedex(pokedex.getId());
+        }
+
+        for (Adestrador adestrador:adestradorServices.leerAdestradores()){
+            System.out.println(adestrador);
+            adestradorServices.borrarAdestrador(adestrador.getId());
         }
 
     }

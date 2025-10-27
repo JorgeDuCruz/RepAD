@@ -39,6 +39,25 @@ public class PokemonServices {
         }
     }
 
+    public Pokemon leerPokemon(String nome) {
+        Pokemon pokemon = null;
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            List<Pokemon> list = session.createQuery("from Pokemon where nome = :nome",Pokemon.class)
+                    .setParameter("nome",nome).getResultList();
+            if (!list.isEmpty()){
+                pokemon=list.get(0);
+            }else {
+                System.out.println("No se encontró el adestrador de nome: "+nome);
+            }
+            session.getTransaction().commit();
+        }catch (Exception e){
+            System.out.println("Erro al leer el adestrador "+nome+": "+e.getMessage());
+            return null;
+        }
+        return pokemon;
+    }
+
     public List<Pokemon> leerPokemons(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("from Pokemon", Pokemon.class).getResultList();
