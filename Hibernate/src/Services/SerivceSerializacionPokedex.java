@@ -31,7 +31,7 @@ public class SerivceSerializacionPokedex {
 
         }
         catch (EOFException e){
-            System.out.println("Leido");;
+            System.out.println("Leído");;
         }
         catch (IOException e) {
             System.out.println("Error al leer el fichero pokedex "+e.getMessage());

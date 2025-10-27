@@ -1,7 +1,4 @@
-import Services.AdestradorServices;
-import Services.PokedexServices;
-import Services.PokemonServices;
-import Services.SerivceSerializacionPokedex;
+import Services.*;
 import models.Adestrador;
 import models.Pokedex;
 import models.Pokemon;
@@ -9,6 +6,7 @@ import models.Pokemon;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -88,5 +86,16 @@ public class Main {
         for (Pokedex pokedex:SerivceSerializacionPokedex.desSerializar()){
             System.out.println(pokedex);
         }
+
+        ArrayList<Adestrador> list = new ArrayList<>();
+        list.add(adestradorServices.leerAdestrador("Pepe"));
+        list.add(adestradorServices.leerAdestrador("Manuel"));
+        ServiceXMLAdestrador.exportarXML(list);
+
+        ArrayList<Adestrador> listAd = ServiceXMLAdestrador.importarXML();
+        for (Adestrador adestrador:listAd){
+            System.out.println(adestrador);
+        }
+
     }
 }
