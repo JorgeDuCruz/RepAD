@@ -54,8 +54,7 @@ public class Main {
         pokemonServices.AñadirPokemon("Goku","1995-3-30",pokedexServices.leerPokedex("Yveltal").getId(),adestradorServices.leerAdestrador("Manuel").getId());
 
 
-
-
+        System.out.println("Muestra de datos 1-----------------------------------------------------------");
 
         for (Pokemon pokemon:pokemonServices.leerPokemons()){
             System.out.println(pokemon);
@@ -71,6 +70,7 @@ public class Main {
             System.out.println(adestrador);
             //adestradorServices.borrarAdestrador(adestrador.getId());
         }
+        System.out.println("Actualizando datos------------------------------------------------------------");
 
         //Pokedex a actualizar:
         Pokedex pokedexAct1 = pokedexServices.leerPokedex("Yveltal");
@@ -120,6 +120,9 @@ public class Main {
         pokemonAct4.setNacemento("2006-12-21");
         pokemonServices.ActualizarPokemon(pokemonAct4);
 
+        System.out.println("Datos actualizados--------------------------------------------------");
+        System.out.println("Muestra de datos actualizados---------------------------------------");
+
         for (Pokemon pokemon:pokemonServices.leerPokemons()){
             System.out.println(pokemon);
 
@@ -135,6 +138,7 @@ public class Main {
 
         }
 
+        System.out.println("Restauración de datos------------------------------------------------------");
         // Devolver datos
         ArrayList<Pokedex> listDevPokedex = SerivceSerializacionPokedex.desSerializar();
         for (Pokedex pokedex:listDevPokedex){
@@ -146,6 +150,7 @@ public class Main {
             adestradorServices.ActualizarAdestrador(adestrador);
         }
 
+        System.out.println("Muestra de datos y borrado------------------------------------------------");
         for (Pokemon pokemon:pokemonServices.leerPokemons()){
             System.out.println(pokemon);
             pokemonServices.borrarPokemon(pokemon.getId());
