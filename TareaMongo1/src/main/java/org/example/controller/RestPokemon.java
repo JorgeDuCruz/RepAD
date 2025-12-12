@@ -32,7 +32,7 @@ public class RestPokemon {
     }
 
 
-    @GetMapping("/getProfedePokemon/{id}")
+    @GetMapping("/getAdestradorDePokemon/{id}")
     public ResponseEntity<Adestrador> actualizarGrupo(@PathVariable String id) {
         Adestrador p = pokemonService.buscarAdestradorDePokemon(id);
 

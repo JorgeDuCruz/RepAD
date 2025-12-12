@@ -12,7 +12,7 @@ public class OpenApiConfig {
     @Value("${app.version}")
     private String version;
 
-    @Value("${spring.application.name:nome}")
+    @Value("${spring.application.name:TareaMongo1A}")
     private String appName;
 
     //http://localhost:8090/swagger-ui/index.html

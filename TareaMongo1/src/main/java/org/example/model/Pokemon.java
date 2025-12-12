@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 @Document(collection = "Pokemons")
 public class Pokemon {
@@ -14,9 +15,9 @@ public class Pokemon {
 
 
     private String nome;
-    private Array tipo;
+    private ArrayList<String>  tipo;
     private int nivel;
-    private Array habilidades;
+    private ArrayList<String> habilidades;
     private String id_adestrador;
 
     public String getId() {
@@ -35,13 +36,7 @@ public class Pokemon {
         this.nome = nome;
     }
 
-    public Array getTipo() {
-        return tipo;
-    }
 
-    public void setTipo(Array tipo) {
-        this.tipo = tipo;
-    }
 
     public int getNivel() {
         return nivel;
@@ -51,11 +46,19 @@ public class Pokemon {
         this.nivel = nivel;
     }
 
-    public Array getHabilidades() {
+    public ArrayList<String> getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(ArrayList<String> tipo) {
+        this.tipo = tipo;
+    }
+
+    public ArrayList<String> getHabilidades() {
         return habilidades;
     }
 
-    public void setHabilidades(Array habilidades) {
+    public void setHabilidades(ArrayList<String> habilidades) {
         this.habilidades = habilidades;
     }
 
