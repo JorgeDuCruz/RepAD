@@ -43,4 +43,22 @@ public class RestPokemonFull {
         return ResponseEntity.ok(p);
     }
 
+    @PostMapping("/subirJson")
+    public ResponseEntity<PokemonFull> subirJson(){
+        PokemonFull p = pokemonService.subirJson();
+        if (p == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(p);
+    }
+
+    @GetMapping("/bajarJson")
+    public ResponseEntity<List<PokemonFull>> bajarJson(){
+        List<PokemonFull> p = pokemonService.bajarJson();
+        if (p==null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(p);
+    }
+
 }

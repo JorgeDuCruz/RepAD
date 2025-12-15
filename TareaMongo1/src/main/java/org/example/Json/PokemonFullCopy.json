@@ -1,0 +1,35 @@
+[
+  {
+    "id": "51",
+    "nome": "Elekid",
+    "tipo": [
+      "Eléctrico"
+    ],
+    "nivel": 5,
+    "habilidades": [
+      "Pararrayos"
+    ],
+    "adestrador": {
+      "nome": "Paul",
+      "idade": 15,
+      "ciudade": "Ciudad Vetusta"
+    }
+  },
+  {
+    "id": "400",
+    "nome": "Bidoof",
+    "tipo": [
+      "Dios",
+      "Normal"
+    ],
+    "nivel": 999,
+    "habilidades": [
+      "Ded"
+    ],
+    "adestrador": {
+      "nome": "Sharkness",
+      "idade": 23,
+      "ciudade": "Málaga"
+    }
+  }
+]

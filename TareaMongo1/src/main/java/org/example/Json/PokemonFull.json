@@ -1,0 +1,17 @@
+{
+  "id": "400",
+  "nome": "Bidoof",
+  "tipo": [
+    "Dios",
+    "Normal"
+  ],
+  "nivel": 999,
+  "habilidades": [
+    "Ded"
+  ],
+  "adestrador": {
+    "nome": "Sharkness",
+    "idade": 23,
+    "ciudade": "Málaga"
+  }
+}
