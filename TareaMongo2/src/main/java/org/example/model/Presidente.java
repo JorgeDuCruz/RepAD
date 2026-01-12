@@ -6,11 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "presidentes")
 public class Presidente {
-    /**
-     * nome:
-     * idade:
-     * partido:
-     */
 
     @Id
     private String id;

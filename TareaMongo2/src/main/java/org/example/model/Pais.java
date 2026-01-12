@@ -16,7 +16,7 @@ public class Pais {
     private String organizacion;
     private ArrayList<String> partidos;
 
-    //gardamos o ID do profesor
+    //gardamos o ID do presidente
     private String id_presidente;
 
     // ---- GETTERS & SETTERS ----
