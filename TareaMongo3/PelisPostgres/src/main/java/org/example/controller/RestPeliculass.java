@@ -33,6 +33,16 @@ public class RestPeliculass {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("titulo/{titulo}")
+    public ResponseEntity<List<Peliculas>> getByTitulo(@PathVariable String titulo){
+        List<Peliculas> p = peliculasService.obterPeliculasTitulo(titulo);
+        if (p == null || p.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        else return ResponseEntity.ok(p);
+
+    }
+
     @PostMapping
     public ResponseEntity<Peliculas> create(@RequestBody Peliculas peliculas) { //acepta crear actoreses no peliculas porque se crea 1º peliculas
         Peliculas gardado = peliculasService.save(peliculas);
