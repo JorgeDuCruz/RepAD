@@ -50,5 +50,31 @@
         "nacionalidade": "Gambling"
       }
     ]
+  },
+  {
+    "id_pelicula": 27,
+    "titulo": "Momento Mori",
+    "xenero": "Pepe",
+    "ano": 2025,
+    "actores": [
+      {
+        "idactor": 75,
+        "nome": "Juan",
+        "apelidos": "Pepez",
+        "nacionalidade": "Gambling"
+      },
+      {
+        "idactor": 76,
+        "nome": "Juan",
+        "apelidos": "Pepez",
+        "nacionalidade": "Gambling"
+      },
+      {
+        "idactor": 77,
+        "nome": "Juan",
+        "apelidos": "Pepez",
+        "nacionalidade": "Gambling"
+      }
+    ]
   }
 ]
